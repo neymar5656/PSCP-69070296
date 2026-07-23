@@ -1,0 +1,12 @@
+'''calculator'''
+n = int(input())
+
+if n == 1:
+    print('1')
+else:
+    press = 0
+    for i in range(1, n + 1):
+        press += len(str(i))
+
+    total = press + (n-1) + 1
+    print(total)
