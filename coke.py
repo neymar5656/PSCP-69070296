@@ -4,15 +4,16 @@ b = int(input())
 c = int(input())
 d = int(input())
 
-if b <= 1 or c == a or d == 0:
+if d == 0 or b == 0:
     print(a * d)
+elif b == 1:
+    print(a + c * (d - 1))
 else:
-    if d <= b:
-        print(a * d)
-    else:
-        sets = (d - (b + 1))// b
-        leftover = (d - (b + 1)) % b
-        set_cost = ((b - 1) * a) + c
-        
-        total = ((b * a) + c) + (sets * set_cost) + (leftover * a)
-        print(total)
+    lo, hi = 1, d
+    while lo < hi:
+        mid = (lo + hi) // 2
+        if mid + (mid - 1) // (b - 1) >= d:
+            hi = mid
+        else:
+            lo = mid + 1
+    print(a * lo + c * (d - lo))
