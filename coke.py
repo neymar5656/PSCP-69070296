@@ -4,7 +4,7 @@ b = int(input())
 c = int(input())
 d = int(input())
 
-if d == 0 or b == 0:
+if not d or not b:
     print(a * d)
 elif b == 1:
     print(a + c * (d - 1))
