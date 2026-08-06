@@ -10,11 +10,9 @@ else:
     if d <= b:
         print(a * d)
     else:
-        first_cost = (b * a) + c
-        rem = d - (b + 1)
-        sets = rem // b
-        leftover = rem % b
+        sets = (d - (b + 1))// b
+        leftover = (d - (b + 1)) % b
         set_cost = ((b - 1) * a) + c
         
-        total = first_cost + (sets * set_cost) + (leftover * a)
+        total = ((b * a) + c) + (sets * set_cost) + (leftover * a)
         print(total)
