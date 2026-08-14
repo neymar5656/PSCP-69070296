@@ -1,6 +1,6 @@
 """pod"""
 Num ,K = map(int, input().split())
-count = [0] * (K + 1)
+count = [0] * (K + 1)   
 
 for _ in range(Num):
     left = int(input())
