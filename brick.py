@@ -7,4 +7,6 @@ b = b*5
 all = a+b
 
 if b > goal:
-    print('hee')
+    print('0')
+else:
+    print(goal - b)
