@@ -4,9 +4,10 @@ b = int(input())
 goal = int(input())
 
 b = b*5
-all = a+b
 
 if b > goal:
     print('0')
+elif a + b < goal:
+    print('-1')
 else:
     print(goal - b)
