@@ -1,17 +1,12 @@
 """สมองเป็นเด็กแต่ตัวเป็นผู้ใหญ่"""
-# รับข้อความต้นฉบับ และจำนวนตำแหน่ง k
-plain_text = input().strip()
-k = int(input().strip())
+word = input()
+k = int(input())
 
-cipher_text = []
+k %= 26
+ans = ''
 
-for char in plain_text:
-    if 'a' <= char <= 'z':
-        # แปลงเป็นลำดับ 0-25 -> เลื่อนไปข้างหน้า k ตำแหน่ง -> วนรอบด้วย % 26 -> แปลงกลับเป็นอักขระ
-        new_char = chr((ord(char) - ord('a') + k) % 26 + ord('a'))
-        cipher_text.append(new_char)
-    else:
-        cipher_text.append(char)
+for i in word:
+    new = chr((ord(i)-ord('a')+ k)% 26 + ord('a'))
+    ans += new
 
-# แสดงผลลัพธ์ข้อความที่เข้ารหัสแล้ว
-print("".join(cipher_text))
+print(ans)
