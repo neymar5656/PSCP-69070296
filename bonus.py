@@ -25,3 +25,4 @@ else:
     else:
         ans = (salary*6/100)+500
 print(int(ans))
+    
