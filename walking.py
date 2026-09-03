@@ -2,17 +2,14 @@
 x = 0
 y = 0
 text = input()
-text = list(text)
-for _ in range(len(text)):
-
-    if 'N' in text:
-        y +=1 
-    elif 'S' in text:
+for i in text:
+    if i == 'N':
+        y += 1
+    elif i == 'S':
         y -= 1
-    elif 'E' in text:
+    elif i == 'E':
         x += 1
-    elif 'W' in text:
+    elif i == 'W':
         x -= 1
-    del text[0]
     
 print(f"{x} {y} {abs(x) + abs(y)}")
