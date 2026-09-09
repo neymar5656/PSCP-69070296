@@ -20,9 +20,9 @@ elif 500 > result >= 200:
 elif 200 > result:
     Status = '1'
 
-if Status == '5':
+if Status == '5' and day >= 7:
     Unique = '99'
-elif Status == '4':
+elif Status == '4' and bonus > 300:
     Unique = '88'
 else:
     Unique = '0'
