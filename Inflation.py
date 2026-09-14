@@ -1,10 +1,20 @@
 """Inflation"""
-n = float(input())
+
+n = input()
 k = int(input())
 
-for i in range(k):
-    money = n*0.0381
-    money = int(money * 100) / 100
-    n += money
+if "." in n:
+    a, b = n.split(".")
+    b = (b + "00")[:2]
+else:
+    a = n
+    b = "00"
 
-print(f"{n:.2f}")
+money = int(a) * 100 + int(b)
+
+for _ in range(k):
+
+    increase = money * 381 // 10000
+    money += increase
+
+print(f"{money // 100}.{money % 100:02d}")

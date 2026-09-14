@@ -1,14 +1,19 @@
-n = int(input())
+x, k = input().split()
+x = int(x)
 
-max_values = []
-for _ in range(n):
-    a = int(input())
-    b = int(input())
-    max_values.append(max(a, b))
+center = x // 3
 
-if n == 1:
-    print(max_values[0])
-else:
-    total = sum(max_values)
-    equation = " + ".join(map(str, max_values))
-    print(f"{equation} = {total}")
+for row in range(x):
+    line = ""
+
+    for col in range(x):
+        if col == row or col == x - row - 1:
+            if k == "#":
+                line += "#"
+            else:
+                distance = abs(center - row)
+                line += chr(ord(k) + distance)
+        else:
+            line += "-"
+
+    print(line)
