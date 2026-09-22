@@ -1,20 +1,26 @@
 """wjle"""
 n = int(input())
-price = 0
 
 while n > 0:
     age ,ticket = input().split()
     age = int(age)
-    ticket = int(age)
+    ticket = int(ticket)
     if age < 15:
         print('-1')
-    elif ticket > n:
+        continue
+
+    if ticket > n:
         print('-2')
+        continue
+
+    if 15 <= age <= 22:
+        price = 120
+    elif age >= 60:
+        price = 75
     else:
-        if 15 <= age <= 22:
-            price += (150 * n)*0.2
-        elif age <=60:
-            price += (150 * n)*0.5
-        else:
-            price += (150 * n)
-    print(price)
+        price = 150
+
+    total = price*ticket
+    n -= ticket
+
+    print(total,n)
