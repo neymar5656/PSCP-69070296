@@ -1,19 +1,21 @@
-x, k = input().split()
-x = int(x)
+"""arrow"""
 
-center = x // 3
+k = int(input())
+n = (int(input()) - 1) // 2
 
-for row in range(x):
-    line = ""
+dot = "*" * k
+space = n
+for i in range(n):
+    print(f"{" " * space}{dot}")
+    space -= 1
 
-    for col in range(x):
-        if col == row or col == x - row - 1:
-            if k == "#":
-                line += "#"
-            else:
-                distance = abs(center - row)
-                line += chr(ord(k) + distance)
-        else:
-            line += "-"
+    i += 1
 
-    print(line)
+print(dot)
+newspace = space + 1
+
+for i in range(n):
+    print(f"{" " * newspace}{dot}")
+    newspace += 1
+
+    i += 1
