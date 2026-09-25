@@ -7,7 +7,7 @@ Status = ''
 if day > 3:
     result = (score + bonus)*1.5
 else:
-    result = (score + bonus)
+    result = score + bonus
 
 if result >= 1500:
     Status = '5'
