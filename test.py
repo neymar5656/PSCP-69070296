@@ -1,21 +1,19 @@
-"""arrow"""
+"""arroasdasdfad"""
+total = 0
 
-k = int(input())
-n = (int(input()) - 1) // 2
+while True:
+    order = int(input())
 
-dot = "*" * k
-space = n
-for i in range(n):
-    print(f"{" " * space}{dot}")
-    space -= 1
+    if order == 5:
+        break
+    elif order == 1:
+        total += 100
+    elif order == 2:
+        total += 120
+    elif order == 3:
+        total += 200
+    elif order == 4:
+        total += 60
 
-    i += 1
-
-print(dot)
-newspace = space + 1
-
-for i in range(n):
-    print(f"{" " * newspace}{dot}")
-    newspace += 1
-
-    i += 1
+print("Bye Bye")
+print(f"Total Calories: {total}")
