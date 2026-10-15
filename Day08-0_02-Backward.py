@@ -1,62 +1,66 @@
-"""นดฟดหกอดฟห"""
-s = input().strip()
-u = ""
-for ch in s:
-    if 'a' <= ch <= 'z':
-        u += chr(ord(ch) - 32)
-    else:
-        u += ch
+"""bgdf"""
+d1 = input().split()
+r = int(d1[0])
+c = int(d1[1])
 
-allti = True
-for ch in u:
-    if ch != 'I' and ch != 'T':
-        allti = False
-        break
+d2 = input().split()
+kr = int(d2[0])
+kc = int(d2[1])
 
-if allti and len(u) > 0:
-    print("unknown " + str(len(u)))
-else:
-    inv = False
-    idx = -1
-    maxa = 0
+n = int(input())
+
+inf = []
+i = 0
+while i < n:
+    d3 = input().split()
+    inf.append((int(d3[0]), int(d3[1])))
+    i += 1
+
+grid = []
+i = 0
+while i < r:
+    row = []
+    j = 0
+    while j < c:
+        row.append(0)
+        j += 1
+    grid.append(row)
+    i += 1
+
+for pt in inf:
+    pr = pt[0]
+    pc = pt[1]
+    
     i = 0
-    n = len(u)
-    while i < n:
-        ch = u[i]
-        if ch == 'A':
-            if i == 0 or (u[i-1] != 'R' and u[i-1] != 'A'):
-                inv = True
-                idx = i
-                break
-            i += 1
-        elif ch == 'R':
-            if i + 1 >= n or u[i+1] != 'A':
-                inv = True
-                idx = i + 1
-                break
-            i += 1
-            cura = 0
-            while i < n and u[i] == 'A':
-                cura += 1
-                i += 1
-            if cura > maxa:
-                maxa = cura
-        elif ch == 'B':
-            if i + 1 >= n or (u[i+1] != 'I' and u[i+1] != 'T'):
-                inv = True
-                idx = i + 1
-                break
-            i += 1
-            while i < n and (u[i] == 'I' or u[i] == 'T'):
-                i += 1
-        elif ch == 'I' or ch == 'T':
-            i += 1
-        else:
-            inv = True
-            idx = i
-            break
+    while i < r:
+        j = 0
+        while j < c:
+            dr = abs(i - pr)
+            dc = abs(j - pc)
+            m = dr if dr > dc else dc
+            
+            val = 0
+            if m == 0:
+                val = 100
+            elif m == 1:
+                val = 60
+            elif m == 2:
+                val = 20
+                
+            if val > grid[i][j]:
+                grid[i][j] = val
+            j += 1
+        i += 1
 
-    if inv:
-        print("no " + str(idx))
-    else:
-        print("yes " + str(maxa))
+safe = 0
+i = 0
+while i < r:
+    j = 0
+    while j < c:
+        if grid[i][j] == 0:
+            safe += 1
+        j += 1
+    i += 1
+
+print(safe)
+print(str(grid[kr][kc]) + "%")
